@@ -20,10 +20,14 @@
       </div>
       <div class="container">
          <a href="/" class="logo-holder">
+            <!-- Use alt to explain what the <img> link does. -->
             <img class="logo" alt="Homepage" src="images/logo/logo.svg">
          </a>
       </div>
+      <!-- If your page has multiple types of navigation, use aria-label to define each one -->
       <nav id="primary-nav" aria-label="Main">
+        <!-- <button> is semantically correct for a hamburger because it's a button. Don't use <i>, <a>, or <checkbox> -->
+        <!-- Progressively enhance the hamburger. If JS is off, the menu should be expanded on page load. IF it's on, it should be collapsed. -->
          <button id="hamburger" aria-expanded="true">
             <span>menu</span>
             <span id="expanded">expanded</span>
@@ -32,11 +36,14 @@
                <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
             </svg>
          </button>
+
+         <!-- Use sentence case, as case can affect how the screen reader reads the text. E.g. The "US" in "CONTACT US" would be read as "U-S", like United States. All caps can also be harder to read for people with dyslexia. -->
          <div class="main-nav bg-primary">
             <ul class="container list-group bg-primary">
                <li>
+                 <!-- aria-current lets the user know that this is the current page and is styled accordingly (a fully or partially blind user may not be able to see this). You can use it in CSS selectors too. -->
                   <a aria-current="page" href="#"
-                     class="list-group-item list-group-item-action bg-primary border-0 active">Home </a>
+                     class="list-group-item list-group-item-action bg-primary border-0 active">Home</a>
                </li>
                <li>
                   <a href="#" class="list-group-item list-group-item-action bg-primary border-0 ">New Patients</a>
@@ -98,12 +105,15 @@
                   </li>
                </ul>
             </div>
+
+            <!-- Need to provide address in text and driving directions for screen reader or people that prefer text in general. -->
             <div class="col-sm">
                <h2 class="mb-3">Come visit us!</h2>
                <p>
                   We are in Turtle Creek Mall, next to Target,
                   right after the roundabout.
                </p>
+               <!-- title explains what the <iframe> is showing -->
                <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5940.83775855611!2d-87.62189730559922!3d41.88384782670508!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880e2ca68a4f9c03%3A0x44182cdcb5a91004!2sMillennium+Park!5e0!3m2!1sen!2sus!4v1565383319401!5m2!1sen!2sus"
                   style="width:100%;height:246px;border:0" allowfullscreen title="Map of Furbaby Hospital."></iframe>
@@ -123,10 +133,14 @@
             <div class="container contacts_holder">
                <section>
                   <h2 class="mb-3 h2">Send us an email!</h2>
+                  <!-- If you want to use asterisks instead of the word "required," explain what the asterisk means for less-tech savvy users or people with learning/cognitive disabilities. -->
                   <p>All fields marked with an asterisk (*) are required.</p>
+                  <!-- Don't use placeholders as labels. They can be hard to read due to low contrast, and screen readers might not read them correctly. Making the text higher contrast makes the input field look filled already. Best practice is to place the labels in high contrast text above the field. -->
                   <form class="contact_form">
                      <div class="form-group">
+                       <!-- Putting the <input> inside of the <label> is cleaner than including it outisde and using an ID to link them. -->
                         <label>
+                           <!-- Hide the * for screen readers so it isn't read out loud as "star" by enclosing it in a <span> and using aria-hidden. -->
                            Your Name <span aria-hidden="true" style="color:red;">*</span>
                            <input type="text" class="form-control" required>
                         </label>
@@ -143,6 +157,7 @@
                         <textarea class="form-control" id="msg" required></textarea>
                      </label>
                      <div class="input-group">
+                        <!-- "Submit" is vague. Explain what will happen when they trigger the button. -->
                         <button type="submit" class="btn btn-primary mt-3">Send Message</button>
                      </div>
                   </form>
@@ -152,6 +167,7 @@
                   <div class="contacts">
                      <div class="contact mb-3">
                         <div>
+                           <!-- SVGs are better than <i> because <i> can be mistaken for text. Include aria-hidden="true" so screen readers don't announce them. -->
                            <svg xmlns="http://www.w3.org/2000/svg" class="text-info" aria-hidden="true" width="50"
                               height="50" viewBox="0 0 24 24">
                               <path fill="#000"
@@ -170,7 +186,7 @@
                         <div>
                            <svg xmlns="http://www.w3.org/2000/svg" class="text-info" aria-hidden="true" width="50"
                               height="50" viewBox="0 0 24 24">
-                              <path fill="#000" d="M11.99 2C6.47 2 2 6.48 2 12s4.47 
+                              <path fill="#000" d="M11.99 2C6.47 2 2 6.48 2 12s4.47
                                     10 9.99 10C17.52 22 22 17.52 22
                                     12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" />
                               <path d="M0 0h24v24H0z" fill="none" />
@@ -208,7 +224,9 @@
          <p>Copyright © <span id="copyright_year">2019 - 2022</span> Stefany Web Design <span>All Rights
                Reserved.</span></p>
          <div class="social-icons">
-            <a href="https://example.com" class="icon-link image-link" aria-label="Follow company on Instragram">
+           <!-- Use aria-label to explain where the icon link goes to. -->
+            <a href="https://example.com" class="icon-link image-link" aria-label="Follow company on Instagram">
+              <!-- If you decide to use <i> instead of <svg> for icon links, still hide the <i> using aria-hidden -->
                <svg aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 16 16">
                   <path fill="#4dc47d"
@@ -225,6 +243,7 @@
                </svg>
             </a>
          </div>
+         <!-- Not recommended to open links in new windows/tabs because it can be disorienting. If you have to, mention in the label that it opens in a new window or add an SVG icon along with aria-describedby. Unlike aria-labeledby, aria-describedby means the screen reader will read both the text in the <a> as well as the text inside of the element inside aria-describedby.-->
          <p id="credits">
             Website created by
             <a href="https://stefanywebdesign.info" rel="noopener" style="color:black;" aria-describedby="new_window"

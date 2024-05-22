@@ -245,7 +245,7 @@ body{
     font-size:13px;
 }
 *:focus {
-    outline: 4px solid lime;
+    outline: 4px solid lime; /* Unlike border, outline doesn't cause layout shift */
 }
 .btn-primary:hover, .btn-primary:focus {
     color: #fff;
